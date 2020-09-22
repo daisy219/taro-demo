@@ -1,25 +1,20 @@
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: zhaoyang
- * date: 2020/09/21
- * desc: 语言设置弹框
+ * date: 2020/09/22
+ * desc: 
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
-import { AtModal, AtModalHeader, AtModalContent, AtIcon } from 'taro-ui-vue'
+import { AtIcon } from 'taro-ui-vue';
 
 @Component({
   name: '',
-  components: {
-    AtModal,
-    AtModalHeader,
-    AtModalContent,
-    AtIcon
-  },
+  components: { AtIcon },
 })
-export default class LanguageDialog extends Vue {
+export default class BaseInfoInnerPage extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  @Prop() private isOpened!: false;
+  // @Prop() private parentData!: any;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -31,53 +26,41 @@ export default class LanguageDialog extends Vue {
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  // private isOpened: boolean = true; // data
+  // private my_data: string = 'some thing'; // data
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  private changeLanguage(type): void {
-    this.$i18n.locale = type;
-    this.$emit('close');
-  }
-
-  private close() {
-    this.$emit('close');
-  }
+  // private some_method(): void {}
 
 }
 
 </script>
 
 <template>
-<view class="language-dialog-page">
-  <AtModal :isOpened="isOpened">
-    <AtModalHeader>切换语言
-      <AtIcon value='close-circle' size='20' color='#909399' @tap.native="close" />
-    </AtModalHeader>
-    <AtModalContent>
-      <view class="lang-type" @tap="changeLanguage('cn')">简体中文</view>
-      <view class="lang-type" @tap="changeLanguage('en')">English</view>
-    </AtModalContent>
-  </AtModal>
+<view class="base-info-inner-page">
+  <view class="info-card">
+    <view class="fl">
+      <AtIcon value='bookmark' size='14' color='#909399'/>基本信息
+    </view>
+    <view class="fr main-color-font">
+      <AtIcon value='edit' size='14' color='#246FBC'/>编辑
+    </view>
+  </view>
 </view>
 </template>
 
 <style lang="less">
 @import '../../../assets/const.less';
-
-.language-dialog-page {
-  .lang-type {
-    font-size: 20px;
-    line-height: 100px;
-    text-align: center;
-  }
-  .at-icon-close-circle {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+.base-info-inner-page {
+  font-size: 28px;
+  line-height: 60px;
+  .info-card {
+    border-radius: 10px;
+    // background-color: @white-color;
   }
 }
+
 </style>

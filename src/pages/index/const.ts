@@ -53,7 +53,7 @@ export default class HomePageConst extends Vue {
       {
         image: menu2_1,
         value: this.$t('home.baseInfo'),
-        path: '',
+        path: '/pages/baseInfo/index',
       },
       {
         image: menu2_2,
