@@ -17,32 +17,32 @@ export default class HomePageConst extends Vue {
     return [
       {
         image: menu1_1,
-        value: '健康管理',
+        value: this.$t('home.healthManagement'),
         path: '',
       },
       {
         image: menu1_2,
-        value: '我的福利',
+        value: this.$t('home.myBenefits'),
         path: '',
       },
       {
         image: menu1_3,
-        value: '服务指南',
+        value: this.$t('home.serviceIntroduction'),
         path: '',
       },
       {
         image: menu1_4,
-        value: '入离职办理',
+        value: this.$t('home.onBoardExit'),
         path: '',
       },
       {
         image: menu1_5,
-        value: '薪资试算',
+        value: this.$t('home.salaryTool'),
         path: '',
       },
       {
         image: menu1_6,
-        value: '专属客服',
+        value: this.$t('home.callCenter'),
         path: '',
       },
     ];
@@ -52,32 +52,32 @@ export default class HomePageConst extends Vue {
     return  [
       {
         image: menu2_1,
-        value: this.$t('home.baseInfo') ,
+        value: this.$t('home.baseInfo'),
         path: '',
       },
       {
         image: menu2_2,
-        value: '社保查询',
+        value: this.$t('home.socialSecurity'),
         path: '',
       },
       {
         image: menu2_3,
-        value: '薪资查询',
+        value: this.$t('home.payslip'),
         path: '',
       },
       {
         image: menu2_4,
-        value: '公积金查询',
+        value: this.$t('home.housingFund'),
         path: '',
       },
       {
         image: menu2_5,
-        value: '报销查询',
+        value: this.$t('home.reimbursement'),
         path: '',
       },
       {
         image: menu2_6,
-        value: '开具证明',
+        value: this.$t('home.certificateIssuing'),
         path: '',
       },
     ];

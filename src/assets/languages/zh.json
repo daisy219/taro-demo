@@ -1,5 +1,16 @@
 {
   "home": {
-    "baseInfo": "基本信息"
+    "baseInfo": "基本信息",
+    "socialSecurity": "社保查询",
+    "payslip": "薪资查询",
+    "housingFund": "公积金查询",
+    "reimbursement": "报销查询",
+    "certificateIssuing": "开具证明",
+    "healthManagement": "健康管理",
+    "myBenefits": "我的福利",
+    "serviceIntroduction": "服务指南",
+    "onBoardExit": "入离职办理",
+    "salaryTool": "薪资试算",
+    "callCenter": "专属客服"
   }
 }

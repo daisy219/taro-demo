@@ -1,5 +1,16 @@
 {
   "home": {
-    "baseInfo": "Base Information"
+    "baseInfo": "Base Information",
+    "socialSecurity": "Social Security",
+    "payslip": "Payslip",
+    "housingFund": "Housing Fund",
+    "reimbursement": "Reimbursement",
+    "certificateIssuing": "Certificate Issuing",
+    "healthManagement": "Health Management",
+    "myBenefits": "My Benefits",
+    "serviceIntroduction": "Service Introduction",
+    "onBoardExit": "On-Board/Exit",
+    "salaryTool": "Salary Tool",
+    "callCenter": "Call Center"
   }
 }

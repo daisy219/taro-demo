@@ -12,7 +12,7 @@
       :duration="500"
       :interval="5000">
       <swiper-item v-for="(image, index) in images" :key="index">
-        <image class="swipe-image" />
+        <image class="swipe-image" :src="image"/>
       </swiper-item>
     </swiper>
     <view class="second-module">
@@ -26,7 +26,7 @@
       <AtGrid :data="firstModuleArr"/>
     </view>
 
-    <language-dialog v-if="languageDialogShow" @close="languageDialogShow = false"/>
+    <language-dialog :is-opened="languageDialogShow" @close="languageDialogShow = false"/>
   </view>
 </template>
 
@@ -51,8 +51,6 @@ export default class HomePage extends Vue {
 
   private bgImg: any = bgImg;
   private languageDialogShow: boolean = false;
-  // private firstModuleArr: any[] = firstModuleArr;
-  // private secondModuleArr: any[] = secondModuleArr;
   private logo: string = 'ciic';
   private images: string[] = [
     'https://img10.360buyimg.com/babel/s700x360_jfs/t25855/203/725883724/96703/5a598a0f/5b7a22e1Nfd6ba344.jpg!q90!cc_350x180',
@@ -66,7 +64,6 @@ export default class HomePage extends Vue {
   };
   /** 切换语言 */
   private switchLanguage() {
-    console.log(11);
     this.languageDialogShow = true;
   };
 }

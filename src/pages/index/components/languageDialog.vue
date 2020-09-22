@@ -6,7 +6,7 @@
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
-import { AtModal, AtModalHeader, AtModalContent } from 'taro-ui-vue'
+import { AtModal, AtModalHeader, AtModalContent, AtIcon } from 'taro-ui-vue'
 
 @Component({
   name: '',
@@ -14,11 +14,12 @@ import { AtModal, AtModalHeader, AtModalContent } from 'taro-ui-vue'
     AtModal,
     AtModalHeader,
     AtModalContent,
+    AtIcon
   },
 })
 export default class LanguageDialog extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private isOpened!: any;
+  @Prop() private isOpened!: false;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -30,7 +31,7 @@ export default class LanguageDialog extends Vue {
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private isOpened: boolean = true; // data
+  // private isOpened: boolean = true; // data
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */
@@ -39,7 +40,10 @@ export default class LanguageDialog extends Vue {
   /* ------------------------ METHODS ------------------------ */
   private changeLanguage(type): void {
     this.$i18n.locale = type;
-    console.log(this.$i18n.locale);
+    this.$emit('close');
+  }
+
+  private close() {
     this.$emit('close');
   }
 
@@ -49,18 +53,31 @@ export default class LanguageDialog extends Vue {
 
 <template>
 <view class="language-dialog-page">
-  <AtModal isOpened>
-    <AtModalHeader>标题</AtModalHeader>
+  <AtModal :isOpened="isOpened">
+    <AtModalHeader>切换语言
+      <AtIcon value='close-circle' size='20' color='#909399' @tap.native="close"></AtIcon>
+    </AtModalHeader>
     <AtModalContent>
-      <view @tap="changeLanguage('cn')">简体中文</view>
-      <view @tap="changeLanguage('en')">English</view>
+      <view class="lang-type" @tap="changeLanguage('cn')">简体中文</view>
+      <view class="lang-type" @tap="changeLanguage('en')">English</view>
     </AtModalContent>
   </AtModal>
 </view>
 </template>
 
-<style lang="less" scoped>
-// .language-dialog-page {
+<style lang="less">
+@import '../../../assets/const.less';
 
-// }
+.language-dialog-page {
+  .lang-type {
+    font-size: 20px;
+    line-height: 100px;
+    text-align: center;
+  }
+  .at-icon-close-circle {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
 </style>
