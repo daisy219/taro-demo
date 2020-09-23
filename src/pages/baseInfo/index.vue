@@ -7,11 +7,29 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { AtAvatar, AtTag, AtIcon, AtTabs, AtTabsPane  } from 'taro-ui-vue';
+import avatar from '../../assets/image/common/avatar.jpg';
 import BaseInfo from './components/baseInfo.vue';
+import HouseholdType from './components/householdType.vue';
+import ChildrenInfo from './components/childrenInfo.vue';
+import CardInfo from './components/cardInfo.vue';
+
+interface tabListItemType {
+  title: string,
+}
 
 @Component({
   name: 'base-info-page',
-  components: { AtAvatar, AtTag, AtIcon, AtTabs, AtTabsPane, BaseInfo },
+  components: { 
+    AtAvatar,
+    AtTag,
+    AtIcon,
+    AtTabs,
+    AtTabsPane,
+    BaseInfo,
+    HouseholdType,
+    ChildrenInfo,
+    CardInfo
+  },
 })
 export default class BaseInfoPage extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -28,12 +46,13 @@ export default class BaseInfoPage extends Vue {
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private current1: number = 0;
-  private tabList1: any[] = [
+  private current: number = 0;
+  private avatar: any = avatar;
+  private tabList: tabListItemType[] = [
     { title: '基本信息' },
     { title: '户籍信息' },
     { title: '子女信息' },
-    { title: '报销卡信息' },
+    { title: '报销信息' },
   ];
   // get computed_data(): string { return 'computed' } // computed
 
@@ -42,7 +61,7 @@ export default class BaseInfoPage extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   private handleClick(value) {
-    this.current1 = value;
+    this.current = value;
   }
 
 }
@@ -52,13 +71,13 @@ export default class BaseInfoPage extends Vue {
 <template>
 <view class="base-info-page">
   <view class="top-content clearfix">
-    <AtAvatar class="employee-image" circle image='https://jdc.jd.com/img/200'></AtAvatar>
+    <at-avatar class="employee-image" circle :image="avatar"></at-avatar>
     <view class="fl employee-info">
       <view>
         <text class="employee-name">小明</text>
-        <AtTag type='primary' size="small" :active="true">
-          <AtIcon class="info-icon" value='credit-card' size='14' color='#fff' @tap.native="close" />中智雇员
-        </AtTag>
+        <at-tag type="primary" size="small" :active="true">
+          <at-icon class="info-icon" value="credit-card" size="14" color="#fff" @tap.native="close" />中智雇员
+        </at-tag>
       </view>
       <view class="employee-no">
         <text>中智雇员编号</text>
@@ -67,27 +86,32 @@ export default class BaseInfoPage extends Vue {
     </view>
   </view>
 
-  <AtTabs
+  <at-tabs
     :swipeable="false"
-    :current="current1"
-    :tabList="tabList1"
+    :current="current"
+    :tabList="tabList"
     :onClick="handleClick"
     >
-    <AtTabsPane :current="current1" :index="0">
+    <at-tabs-pane class="tab-content" :current="current" :index="0">
       <base-info />
-    </AtTabsPane>
-    <AtTabsPane :current="current1" :index="1">
-      <view class='tab-content'>标签页二的内容</view>
-    </AtTabsPane>
-    <AtTabsPane :current="current1" :index="2">
-      <view class='tab-content'>标签页三的内容</view>
-    </AtTabsPane>
-  </AtTabs>
+    </at-tabs-pane>
+    <at-tabs-pane class="tab-content" :current="current" :index="1">
+      <household-type />
+    </at-tabs-pane>
+    <at-tabs-pane class="tab-content" :current="current" :index="2">
+      <children-info />
+    </at-tabs-pane>
+    <at-tabs-pane class="tab-content" :current="current" :index="3">
+      <card-info />
+    </at-tabs-pane>
+  </at-tabs>
 </view>
 </template>
 
 <style lang="less">
-// @import '~@/assets/stylus/var'
+@import '../../assets/const.less';
+@import './index.less';
+
 .base-info-page {
   padding: 30px 40px;
   .top-content {
@@ -107,6 +131,10 @@ export default class BaseInfoPage extends Vue {
         line-height: 40px;
       }
     }
+  }
+  .tab-content {
+    margin-top: 20px;
+    padding: 0 20px;
   }
 }
 

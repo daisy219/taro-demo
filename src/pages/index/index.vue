@@ -3,7 +3,7 @@
     <view class="top-line">
       <text class="logo-text">{{ logo }}</text>
       <view class="filter-text" @tap="switchLanguage">简体中文
-        <AtIcon value='chevron-down' size='14' color='#fff'></AtIcon>
+        <at-icon value='chevron-down' size='14' color='#fff'></at-icon>
       </view>
     </view>
     <swiper
@@ -16,14 +16,14 @@
       </swiper-item>
     </swiper>
     <view class="second-module">
-      <AtGrid :data="secondModuleArr" :onClick="jumpTo"/>
+      <at-grid :data="secondModuleArr" :onClick="jumpTo"/>
     </view>
     <view class="bg-wrap">
       <image class="bg-img" :src="bgImg" />
     </view>
 
     <view class="second-module">
-      <AtGrid :data="firstModuleArr"/>
+      <at-grid :data="firstModuleArr"/>
     </view>
 
     <language-dialog :is-opened="languageDialogShow" @close="languageDialogShow = false"/>

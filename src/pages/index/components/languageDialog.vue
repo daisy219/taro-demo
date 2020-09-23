@@ -53,15 +53,15 @@ export default class LanguageDialog extends Vue {
 
 <template>
 <view class="language-dialog-page">
-  <AtModal :isOpened="isOpened">
-    <AtModalHeader>切换语言
-      <AtIcon value='close-circle' size='20' color='#909399' @tap.native="close" />
-    </AtModalHeader>
-    <AtModalContent>
+  <at-modal :isOpened="isOpened">
+    <at-modal-header>切换语言
+      <at-icon value='close-circle' size='20' color='#909399' @tap.native="close" />
+    </at-modal-header>
+    <at-modal-content>
       <view class="lang-type" @tap="changeLanguage('cn')">简体中文</view>
       <view class="lang-type" @tap="changeLanguage('en')">English</view>
-    </AtModalContent>
-  </AtModal>
+    </at-modal-content>
+  </at-modal>
 </view>
 </template>
 
