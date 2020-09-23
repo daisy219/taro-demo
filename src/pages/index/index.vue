@@ -1,6 +1,6 @@
 <template>
   <view class="home-page-index common-page">
-    <view class="clearfix">
+    <view class="top-line">
       <text class="logo-text">{{ logo }}</text>
       <view class="filter-text" @tap="switchLanguage">简体中文
         <AtIcon value='chevron-down' size='14' color='#fff'></AtIcon>
@@ -19,7 +19,7 @@
       <AtGrid :data="secondModuleArr" :onClick="jumpTo"/>
     </view>
     <view class="bg-wrap">
-      <image :src="bgImg" />
+      <image class="bg-img" :src="bgImg" />
     </view>
 
     <view class="second-module">

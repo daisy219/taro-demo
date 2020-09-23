@@ -57,7 +57,7 @@ export default class BaseInfoPage extends Vue {
       <view>
         <text class="employee-name">小明</text>
         <AtTag type='primary' size="small" :active="true">
-          <AtIcon class="info-icon" value='credit-card' size='20' color='#fff' @tap.native="close" />中智雇员
+          <AtIcon class="info-icon" value='credit-card' size='14' color='#fff' @tap.native="close" />中智雇员
         </AtTag>
       </view>
       <view class="employee-no">
@@ -91,7 +91,7 @@ export default class BaseInfoPage extends Vue {
 .base-info-page {
   padding: 30px 40px;
   .top-content {
-    padding: 0 100px;
+    padding: 0 80px;
     .employee-image {
       margin-top: 10px;
       float: left;
@@ -105,9 +105,6 @@ export default class BaseInfoPage extends Vue {
       .employee-no {
         font-size: 22px;
         line-height: 40px;
-      }
-      .info-icon {
-        margin-right: 10px;
       }
     }
   }
