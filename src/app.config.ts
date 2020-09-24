@@ -4,6 +4,7 @@ export default {
     'pages/baseInfo/index',
     'pages/changePassword/index',
     'pages/socialSecurity/index',
+    'pages/payslip/index',
   ],
   window: {
     backgroundTextStyle: 'light',
