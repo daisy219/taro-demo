@@ -7,6 +7,7 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { AtIcon, AtInput, AtToast, AtButton } from 'taro-ui-vue';
+import Taro from '@tarojs/taro';
 
 interface userInfoType {
   name: string;
@@ -56,6 +57,12 @@ export default class BaseInfoInnerPage extends Vue {
       this.toastShow = true;
     }
     this.isEdit = !this.isEdit;
+  };
+
+  private toChangePassword() {
+    Taro.redirectTo({
+      url: '/pages/changePassword/index',
+    });
   }
 
 }
@@ -98,7 +105,7 @@ export default class BaseInfoInnerPage extends Vue {
       <at-input class="info-input" name='idNo' type='text' :value="userInfo.idNo" disabled/>
     </view>
   </view>
-  <view class="info-card btn-card">修改密码</view>
+  <view class="info-card btn-card" @tap="toChangePassword">修改密码</view>
   <view class="info-card btn-card">隐私条款</view>
   <at-button size="small" type="primary">注销账户</at-button>
   <at-toast :isOpened="toastShow" :text="'保存成功'" :icon="'check'" />
