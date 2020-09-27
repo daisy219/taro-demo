@@ -53,6 +53,10 @@ export default class Payslip extends Vue {
     this.isApply = false;
   };
 
+  private cancel() {
+    this.isApply = false;
+  }
+
 }
 
 </script>
@@ -75,18 +79,20 @@ export default class Payslip extends Vue {
       @change="handleChange"
       @cancel="handleCancel"
     >
-      <view class='demo-list-item'>
-        <view class='demo-list-item__label'>期望薪资</view>
-        <view class='demo-list-item__value'>
+      <view class='list-item'>
+        <view class='list-item-label'>请选择期望薪资</view>
+        <view class='list-item-value'>
           {{ selector[selectorValue] }}
         </view>
       </view>
     </picker>
-
-    <at-button class="margin-top-20" type='primary' size="small" :on-click="save">保存</at-button>  
+    <view class="btn-group">
+      <at-button size="small" :on-click="cancel">取消</at-button>  
+      <at-button type='primary' size="small" :on-click="save">申请</at-button>  
+    </view>
   </view>
 
-  <at-toast :isOpened="toastShow" :text="'保存成功'" :icon="'check'" />
+  <at-toast :isOpened="toastShow" :text="'申请成功'" :icon="'check'" />
 </view>
 </template>
 
@@ -97,8 +103,14 @@ export default class Payslip extends Vue {
   padding: 50px;
   font-size: 28px;
   color: @gray-font-color;
-  .margin-top-20 {
+  .btn-group {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .list-item-value {
+    border: 1px solid @border-color;
+    padding: 5px 10px;
   }
 }
 </style>
