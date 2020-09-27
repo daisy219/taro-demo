@@ -18,7 +18,7 @@ export default class HomePageConst extends Vue {
       {
         image: menu1_1,
         value: this.$t('home.healthManagement'),
-        path: '',
+        path: '/pages/healthManagement/index',
       },
       {
         image: menu1_2,

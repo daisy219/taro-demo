@@ -23,7 +23,7 @@
     </view>
 
     <view class="second-module">
-      <at-grid :data="firstModuleArr"/>
+      <at-grid :data="firstModuleArr" :onClick="jumpTo"/>
     </view>
 
     <language-dialog :is-opened="languageDialogShow" @close="languageDialogShow = false"/>
@@ -33,12 +33,14 @@
 <script lang="ts">
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
+import { AtButton, AtIcon, AtGrid } from 'taro-ui-vue';
+import { LOGO } from '../../const/common';
+
 import LanguageDialog from './components/languageDialog.vue';
-import { AtButton, AtIcon, AtGrid  } from 'taro-ui-vue'
-import './index.less';
 import HomePageConst from './const';
 import bgImg from '../../assets/image/home/bg.jpg';
 import Taro from '@tarojs/taro';
+import './index.less';
 
 @Component({
   name: 'home-page',
@@ -51,7 +53,7 @@ export default class HomePage extends Vue {
 
   private bgImg: any = bgImg;
   private languageDialogShow: boolean = false;
-  private logo: string = 'ciic';
+  private logo: string = LOGO;
   private images: string[] = [
     'https://img10.360buyimg.com/babel/s700x360_jfs/t25855/203/725883724/96703/5a598a0f/5b7a22e1Nfd6ba344.jpg!q90!cc_350x180',
     'https://img11.360buyimg.com/babel/s700x360_jfs/t1/4776/39/2280/143162/5b9642a5E83bcda10/d93064343eb12276.jpg!q90!cc_350x180',

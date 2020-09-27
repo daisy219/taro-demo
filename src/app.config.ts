@@ -8,6 +8,7 @@ export default {
     'pages/housingFund/index',
     'pages/reimbursement/index',
     'pages/certificateIssuing/index',
+    'pages/healthManagement/index',
   ],
   window: {
     backgroundTextStyle: 'light',
