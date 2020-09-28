@@ -84,10 +84,10 @@ export default class HealthManagement extends Vue {
     <view class="card-title">我的理赔</view>
     <view class="at-row">
       <view class="at-col module-item">
-        <view>医疗理赔</view>
+        <view class="claim-item" style="background-color: #409EFF">医疗理赔</view>
       </view>
       <view class="at-col module-item">
-        <view>冠状理赔</view>
+        <view class="claim-item" style="background-color: #67C23A">冠状理赔</view>
       </view>
     </view>
   </view>
@@ -138,6 +138,13 @@ export default class HealthManagement extends Vue {
     .bg-img {
       width: 100%;
     }
+  }
+  .claim-item {
+    color: @white-color;
+    border-radius: 10px;
+    padding: 50px 30px;
+    margin: 0 20px;
+    font-size: 28px;
   }
 }
 </style>
