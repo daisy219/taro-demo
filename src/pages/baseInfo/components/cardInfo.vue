@@ -67,10 +67,10 @@ export default class CardInfo extends Vue {
   <view class="info-card">
     <view class="top-line clearfix">
       <view class="fl gray-color-font">
-        <at-icon value='bookmark' size='14' color='#909399'/>报销卡信息
+        <at-icon value='bookmark' class="margin-right-10" size='14' color='#909399'/>报销卡信息
       </view>
       <view class="fr main-color-font" @tap="save">
-        <at-icon value='edit' size='14' color='#246FBC'/>保存
+        <at-icon value='edit' class="margin-right-10" size='14' color='#246FBC'/>保存
       </view>
     </view>
     <view class="info-line danger-color-font ">

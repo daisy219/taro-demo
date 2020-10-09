@@ -55,7 +55,7 @@ export default class HouseholdType extends Vue {
 <view class="household-type-page">
   <view class="info-card">
     <view class="top-line">
-      <view class="gray-color-font"><at-icon value='bookmark' size='14' color='#909399'/>户籍信息</view>
+      <view class="gray-color-font"><at-icon value='bookmark' class="margin-right-10" size='14' color='#909399'/>户籍信息</view>
     </view>
     <view class="info-line">
       <view>户籍地址</view>
